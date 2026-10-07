@@ -1,0 +1,12 @@
+/home/dzikri/projects/HPC/Tugas-2/input/log-002.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-006.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-010.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-014.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-018.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-022.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-026.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-030.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-034.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-038.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-042.txt
+/home/dzikri/projects/HPC/Tugas-2/input/log-046.txt

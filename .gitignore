@@ -1,0 +1,7 @@
+# Data dibuat ulang dengan generate_sample_data.sh; jangan unggah 106 MB data sintetis.
+/input/
+# Percobaan awal yang berjalan bersamaan tidak dipakai dalam laporan benchmark.
+/output/serial/
+/output/paralel-2/
+/output/paralel-4/
+__pycache__/
