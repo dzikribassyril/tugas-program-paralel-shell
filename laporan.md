@@ -23,7 +23,7 @@ $ awk 'NR<=3 { print }' input/log-001.txt
 2026-10-07 09:10:01 INFO file=001 event=000003 service=backend message=processing_request client=web status=active
 ```
 
-Folder `input/` ada di komputer pengujian, tetapi tidak ikut diunggah ke GitHub karena berisi **106 MB data buatan**. Kalau baru clone repo, jalankan `./generate_sample_data.sh 48 20000 input` untuk membuat data yang sama. Kalau `input/` sudah ada, tidak perlu mengulang; generator tidak akan menimpa folder lama.
+Folder `input/` ada di komputer pengujian, tetapi tidak ikut diunggah ke GitHub karena berisi 106 MB data buatan. Kalau baru clone repo, jalankan `./generate_sample_data.sh 48 20000 input` untuk membuat data yang sama. Kalau `input/` sudah ada, tidak perlu mengulang; generator tidak akan menimpa folder lama.
 
 ## 2. Mengatur jumlah worker
 
@@ -116,7 +116,7 @@ workers	4
 elapsed_seconds	0.561
 ```
 
-`matched_lines` berarti jumlah **baris** yang memuat `ERROR`. Gambar berikut menampilkan pembagian 12 file per worker dan isi ringkasan di atas:
+`matched_lines` berarti jumlah baris yang memuat `ERROR`. Gambar berikut menampilkan pembagian 12 file per worker dan isi ringkasan di atas:
 
 ![Cuplikan hasil pembagian dan ringkasan 4 worker](screenshots/hasil-paralel.png)
 
@@ -133,7 +133,7 @@ $ grep -cF ERROR input/*.txt | awk -F: '{n += $NF} END {print "Baris berisi ERRO
 Baris berisi ERROR: 56448
 ```
 
-Angkanya cocok dengan `summary.tsv`. Saya juga bandingkan hasil **tiap file** antara 1 dan 4 worker (kolom ID worker dibuang karena memang berbeda):
+Angkanya cocok dengan `summary.tsv`. Saya juga bandingkan hasil tiap file antara 1 dan 4 worker (kolom ID worker dibuang karena memang berbeda):
 
 ```console
 $ diff -u <(cut -f 2- output/uji-1c/details.tsv | LC_ALL=C sort) <(cut -f 2- output/uji-4c/details.tsv | LC_ALL=C sort)
@@ -152,7 +152,7 @@ Error: Bukan file host: /home/dzikri/projects/HPC/Tugas-2/hostfile-hilang
 
 ## 7. Hasil pengujian waktu
 
-Supaya tidak bergantung pada satu kali pengukuran, saya jalankan masing-masing konfigurasi **3 kali secara berurutan** (`a`, `b`, `c`). Setiap percobaan menyimpan output di folder baru seperti `output/uji-2a`.
+Supaya tidak bergantung pada satu kali pengukuran, saya jalankan masing-masing konfigurasi 3 kali secara berurutan (`a`, `b`, `c`). Setiap percobaan menyimpan output di folder baru seperti `output/uji-2a`.
 
 Selain contoh percobaan `c` di atas, inilah perintah untuk `a` dan `b`:
 
@@ -184,7 +184,7 @@ Ini gambar waktu dari sembilan file hasil pengujian yang tersimpan:
 
 ![Cuplikan waktu tiga percobaan untuk 1, 2, dan 4 worker](screenshots/waktu-pengujian.png)
 
-**Yang saya dapat:** 4 worker kira-kira **1,69 kali lebih cepat** daripada 1 worker pada data ini. Hasil hitungannya tetap sama. Dari 2 ke 4 worker peningkatannya lebih kecil; membaca file dan menjalankan proses juga butuh waktu. Angka waktu mungkin berbeda kalau dijalankan di komputer lain.
+**Yang saya dapat:** 4 worker kira-kira 1,69 kali lebih cepat daripada 1 worker pada data ini. Hasil hitungannya tetap sama. Dari 2 ke 4 worker peningkatannya lebih kecil; membaca file dan menjalankan proses juga butuh waktu. Angka waktu mungkin berbeda kalau dijalankan di komputer lain.
 
 ## Kesimpulan
 

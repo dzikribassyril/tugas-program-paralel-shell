@@ -21,3 +21,11 @@ Hasil `details.tsv` berisi statistik per file, `worker-N.tsv` hasil masing-masin
 Satu worker menulis hanya ke file keluarannya sendiri. Proses root menunggu seluruh PID worker (`wait`) dan memeriksa statusnya sebelum menggabungkan hasil, sehingga penulisan output tidak saling berebut. Jika memakai host lain, konfigurasi SSH key-based/passwordless dan shared filesystem terlebih dahulu; jangan menyimpan private key di folder proyek.
 
 Lihat `laporan.md` untuk perintah pengujian, gambar cuplikan terminal yang dirender dari hasil asli di `screenshots/`, serta output nyata di `output/`. Gambar bisa dibuat ulang dengan `python3 render_screenshots.py` (opsional: membutuhkan Pillow).
+
+## PDF laporan (A4)
+
+PDF siap dikumpulkan: [`tugas_pararel_shell_140810230071.pdf`](tugas_pararel_shell_140810230071.pdf). Jika isi `laporan.md` berubah, buat ulang dengan Pandoc dan LuaLaTeX:
+
+```bash
+pandoc laporan.md --standalone --from gfm --lua-filter=pdf-pages.lua --include-in-header=pdf-style.tex --pdf-engine=lualatex -V papersize:a4 -V geometry:margin=20mm -V 'mainfont=DejaVu Sans' -V 'monofont=DejaVu Sans Mono' -V fontsize=10pt -V colorlinks=true -V urlcolor=blue --resource-path=. -o tugas_pararel_shell_140810230071.pdf
+```
